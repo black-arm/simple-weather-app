@@ -1,4 +1,5 @@
 import React from "react";
+import { QueryContainer } from "../containers/query-container";
 
 
 export const WeatherPage = () => {
@@ -6,5 +7,6 @@ export const WeatherPage = () => {
         <h1 className="text-3xl">
             Weater Page
         </h1>
+        <QueryContainer />
     </div>
 }

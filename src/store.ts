@@ -1,8 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import generalReducer from "./modules/shared/domains/general-store";
+import weatherReducer from './modules/weather/domains/weather-store';
+
 export const store = configureStore({
     reducer: {
-        general: generalReducer
+        general: generalReducer,
+        weather: weatherReducer
     }
 })
 
