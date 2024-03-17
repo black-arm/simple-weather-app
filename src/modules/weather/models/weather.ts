@@ -35,3 +35,11 @@ export interface WeatherData {
         visibility: number;
     };
 }
+
+export interface WeatherDisplay {
+    location?: string;
+    temperature?: number;
+    description?: string;
+    icon?: string;
+  }
+  

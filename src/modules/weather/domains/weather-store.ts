@@ -24,7 +24,7 @@ export const wheaterStore = createSlice({
             if(state.historyWeather.length < 5){
                 state.historyWeather.splice(0, 0, action.payload)
             } else {
-                state.historyWeather = [action.payload, state.historyWeather.slice(0, 4)]
+                state.historyWeather = [action.payload, ...state.historyWeather.slice(0, 4)]
             }
         })
     }
