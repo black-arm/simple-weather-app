@@ -1,22 +1,25 @@
+import { useState } from "react";
 
 export function QueryUI({click}: {click: (query: string) => void}) {
 
-    let query = '';
+    let [query, setQuery] = useState('');
 
     function change(event: React.ChangeEvent<HTMLInputElement>){
         
         event.stopPropagation();
-        query = event.currentTarget.value;
+        setQuery(event.currentTarget.value);
     }
 
-    function search(){
+    function search(event: React.FormEvent){
+        event.preventDefault();
+        setQuery('');
         click(query);
     }
 
-    return <div className="flex justify-center p-3">
+    return <form onSubmit={search}><div className="flex justify-center p-3">
         <label className="input input-bordered flex items-center gap-2">
-            <input type="text" className="grow" placeholder="Search" onChange={change} />
-            <button onClick={search}>
+            <input type="text" className="grow" placeholder="Search" onChange={change} value={query} />
+            <button type="submit">
                 <svg xmlns="http://www.w3.org/2000/svg" 
                     viewBox="0 0 16 16" 
                     fill="currentColor" 
@@ -25,5 +28,5 @@ export function QueryUI({click}: {click: (query: string) => void}) {
                 </svg>
             </button>
         </label>
-    </div> 
+    </div> </form>
 }
